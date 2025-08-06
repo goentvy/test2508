@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            background:#98bf21;
+        }
+    </style>
+</head>
+<body>
+    <p>box</p>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+    <button id="to">To</button>
+    <button id="slideDown">slideDown</button>
+    <button id="slideUp">slideUp</button>
+    <button id="slideToggle">slideToggle</button>
+    <button id="animate">animate</button>
+    <button id="chaining">chaining</button>
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#hide").click(function(){
+                $("p").fadeOut();
+            })
+
+            $("#show").click(function(){
+                $("p").fadeIn();
+            })
+
+            $("#toggle").click(function(){
+                $("p").fadeToggle();
+            })
+
+            $("#to").click(function(){
+                $("p").fadeTo(1000, 0.5, function() {
+                    console.log('to click');
+                });
+            })
+
+            $("#slideDown").click(function(){
+                $("p").slideDown();
+            })
+
+            $("#slideUp").click(function(){
+                $("p").slideUp();
+            })
+
+            $("#slideToggle").click(function(){
+                $("p").slideToggle();
+            })
+
+            $("#animate").click(function(){
+                $("p").animate({height: '300px'});
+                $("p").animate({width: '300px'});
+                $("p").animate({fontSize: '50px'});
+                $("p").animate({height: '100px'});
+                $("p").animate({width: '100px'});
+                $("p").animate({fontSize: '16px'});
+            })
+            $("#chaining").click(function(){
+                $("p").css("color", "red").slideUp(2000).slideDown(2000);
+            })
+        })
+    </script>
+</body>
+</html>
